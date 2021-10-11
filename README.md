@@ -241,7 +241,7 @@ Copyright &copy; 2020-2021 [Mineiros GmbH][homepage]
 
 <!-- markdown-link-check-disable -->
 
-[badge-build]: https://github.com/mineiros-io/terraform-google-premium-modules/workflows/Tests/badge.svg
+[badge-build]: https://github.com/mineiros-io/terraform-google-cloud-run/workflows/Tests/badge.svg
 
 <!-- markdown-link-check-enable -->
 
@@ -252,8 +252,8 @@ Copyright &copy; 2020-2021 [Mineiros GmbH][homepage]
 
 <!-- markdown-link-check-disable -->
 
-[build-status]: https://github.com/mineiros-io/terraform-google-premium-modules/modules/terraform-google-cloud-run/actions
-[releases-github]: https://github.com/mineiros-io/terraform-google-premium-modules/modules/terraform-google-cloud-run/releases
+[build-status]: https://github.com/mineiros-io/terraform-google-cloud-run/actions
+[releases-github]: https://github.com/mineiros-io/terraform-google-cloud-run/releases
 
 <!-- markdown-link-check-enable -->
 
@@ -268,12 +268,12 @@ Copyright &copy; 2020-2021 [Mineiros GmbH][homepage]
 
 <!-- markdown-link-check-disable -->
 
-[variables.tf]: https://github.com/mineiros-io/terraform-google-premium-modules/blob/modules/terraform-google-cloud-run/main/variables.tf
-[examples/]: https://github.com/mineiros-io/terraform-google-premium-modules/blob/modules/terraform-google-cloud-run/main/examples
-[issues]: https://github.com/mineiros-io/terraform-google-premium-modules/issues
-[license]: https://github.com/mineiros-io/terraform-google-premium-modules/blob/main/LICENSE
-[makefile]: https://github.com/mineiros-io/terraform-google-premium-modules/blob/main/Makefile
-[pull requests]: https://github.com/mineiros-io/terraform-google-premium-modules/pulls
-[contribution guidelines]: https://github.com/mineiros-io/terraform-google-premium-modules/blob/main/CONTRIBUTING.md
+[variables.tf]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/variables.tf
+[examples/]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/examples
+[issues]: https://github.com/mineiros-io/terraform-google-cloud-run/issues
+[license]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/LICENSE
+[makefile]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/Makefile
+[pull requests]: https://github.com/mineiros-io/terraform-google-cloud-run/pulls
+[contribution guidelines]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/CONTRIBUTING.md
 
 <!-- markdown-link-check-enable -->
