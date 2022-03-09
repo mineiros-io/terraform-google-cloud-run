@@ -55,7 +55,7 @@ Most common usage of the module:
 
 ```hcl
 module "terraform-module-template" {
-  source = "git@github.com:mineiros-io/terraform-module-template.git?ref=v0.0.1"
+  source = "git@github.com:mineiros-io/terraform-module-template.git?ref=v0.0.2"
 
   name     = "example-name"
   location = "us-central1"
