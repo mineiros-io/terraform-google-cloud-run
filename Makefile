@@ -1,7 +1,7 @@
 # Set default shell to bash
 SHELL := /bin/bash -o pipefail
 
-BUILD_TOOLS_VERSION      ?= v0.13.0
+BUILD_TOOLS_VERSION      ?= v0.15.1
 BUILD_TOOLS_DOCKER_REPO  ?= mineiros/build-tools
 BUILD_TOOLS_DOCKER_IMAGE ?= ${BUILD_TOOLS_DOCKER_REPO}:${BUILD_TOOLS_VERSION}
 
@@ -50,22 +50,13 @@ ifdef SSH_AUTH_SOCK
   DOCKER_SSH_FLAGS += -v ${SSH_AUTH_SOCK}:/ssh-agent
 endif
 
-# If AWS_ACCESS_KEY_ID is defined, we are likely running inside an AWS provider
-# module. To enable AWS authentication inside the docker container, we inject
-# the relevant environment variables.
-ifdef AWS_ACCESS_KEY_ID
-  DOCKER_AWS_FLAGS += -e AWS_ACCESS_KEY_ID
-  DOCKER_AWS_FLAGS += -e AWS_SECRET_ACCESS_KEY
-  DOCKER_AWS_FLAGS += -e AWS_SESSION_TOKEN
+# If GOOGLE_CREDENTIALS is defined, we are likely running inside a GCP provider
+# module. To enable GCP authentication inside the docker container, we inject
+# the relevant environment variables (service-account key file).
+ifdef GOOGLE_CREDENTIALS
+	DOCKER_GCP_FLAGS += -e GOOGLE_CREDENTIALS
 endif
 
-# If GITHUB_OWNER is defined, we are likely running inside a GitHub provider
-# module. To enable GitHub authentication inside the docker container,
-# we inject the relevant environment variables.
-ifdef GITHUB_OWNER
-  DOCKER_GITHUB_FLAGS += -e GITHUB_TOKEN
-  DOCKER_GITHUB_FLAGS += -e GITHUB_OWNER
-endif
 
 .PHONY: default
 default: help
