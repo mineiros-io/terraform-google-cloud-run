@@ -17,6 +17,14 @@ git clone https://github.com/mineiros-io/terraform-google-cloud-run.git
 cd terraform-google-cloud-run/examples/example
 ```
 
+### Basic Setup
+
+Before running terraform define in which project you want to create resources:
+
+```sh
+export GOOGLE_CLOUD_PROJECT=<your project>
+```
+
 ### Initializing Terraform
 
 - Run `terraform init` to initialize the example and download providers and the module.
