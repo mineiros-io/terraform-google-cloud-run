@@ -232,8 +232,8 @@ section {
         }
 
         attribute "spec" {
+          required    = true
           type        = object(spec)
-          default     = {}
           description = <<-END
             RevisionSpec holds the desired state of the Revision (from the
             client).
@@ -281,8 +281,8 @@ section {
           }
 
           attribute "containers" {
+            required    = true
             type        = list(container)
-            default     = []
             description = <<-END
               Container defines the unit of execution for this Revision. In the
               context of a Revision, we disallow a number of the fields of this

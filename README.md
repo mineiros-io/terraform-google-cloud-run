@@ -174,12 +174,10 @@ See [variables.tf] and [examples/] for details and use-cases.
       apply the `lifecycle.ignore_changes` rule to the
       `metadata.0.annotations` field.
 
-  - [**`spec`**](#attr-template-spec): *(Optional `object(spec)`)*<a name="attr-template-spec"></a>
+  - [**`spec`**](#attr-template-spec): *(**Required** `object(spec)`)*<a name="attr-template-spec"></a>
 
     RevisionSpec holds the desired state of the Revision (from the
     client).
-
-    Default is `{}`.
 
     The `spec` object accepts the following attributes:
 

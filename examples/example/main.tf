@@ -10,6 +10,17 @@ module "terraform-google-cloud-run" {
   # All required module arguments
   name     = "mineiros-cloud-run-example"
   location = "europe-north1"
+  template = {
+    spec = {
+      containers = [
+        {
+          # Cloud run only accepts images on GCR/Artifact Registry
+          # So we use a k8s public test image hosted on GCR
+          image = "gcr.io/kubernetes-e2e-test-images/echoserver:2.2"
+        }
+      ]
+    }
+  }
 
   # All optional module arguments set to the default values
 
