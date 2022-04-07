@@ -1,16 +1,16 @@
 header {
   image = "https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg"
-  url   = "https://mineiros.io/?ref=terraform-module-template"
+  url   = "https://mineiros.io/?ref=terraform-google-cloud-run"
 
   badge "build" {
-    image = "https://github.com/mineiros-io/terraform-module-template/workflows/Tests/badge.svg"
-    url   = "https://github.com/mineiros-io/terraform-module-template/actions"
+    image = "https://github.com/mineiros-io/terraform-google-cloud-run/workflows/Tests/badge.svg"
+    url   = "https://github.com/mineiros-io/terraform-google-cloud-run/actions"
     text  = "Build Status"
   }
 
   badge "semver" {
-    image = "https://img.shields.io/github/v/tag/mineiros-io/terraform-module-template.svg?label=latest&sort=semver"
-    url   = "https://github.com/mineiros-io/terraform-module-template/releases"
+    image = "https://img.shields.io/github/v/tag/mineiros-io/terraform-google-cloud-run.svg?label=latest&sort=semver"
+    url   = "https://github.com/mineiros-io/terraform-google-cloud-run/releases"
     text  = "GitHub tag (latest SemVer)"
   }
 
@@ -34,7 +34,7 @@ header {
 }
 
 section {
-  title   = "terraform-module-template"
+  title   = "terraform-google-cloud-run"
   toc     = true
   content = <<-END
     A [Terraform](https://www.terraform.io) module for creating and managing
@@ -69,8 +69,8 @@ section {
       Most common usage of the module:
 
       ```hcl
-      module "terraform-module-template" {
-        source = "git@github.com:mineiros-io/terraform-module-template.git?ref=v0.0.2"
+      module "terraform-google-cloud-run" {
+        source = "git@github.com:mineiros-io/terraform-google-cloud-run.git?ref=v0.0.2"
 
         name     = "example-name"
         location = "us-central1"
@@ -992,7 +992,7 @@ section {
 
 references {
   ref "homepage" {
-    value = "https://mineiros.io/?ref=terraform-module-template"
+    value = "https://mineiros.io/?ref=terraform-google-cloud-run"
   }
   ref "hello@mineiros.io" {
     value = " mailto:hello@mineiros.io"
@@ -1022,24 +1022,24 @@ references {
     value = "https://semver.org/"
   }
   ref "variables.tf" {
-    value = "https://github.com/mineiros-io/terraform-module-template/blob/main/variables.tf"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/variables.tf"
   }
   ref "examples/" {
-    value = "https://github.com/mineiros-io/terraform-module-template/blob/main/examples"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/examples"
   }
   ref "issues" {
-    value = "https://github.com/mineiros-io/terraform-module-template/issues"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/issues"
   }
   ref "license" {
-    value = "https://github.com/mineiros-io/terraform-module-template/blob/main/LICENSE"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/LICENSE"
   }
   ref "makefile" {
-    value = "https://github.com/mineiros-io/terraform-module-template/blob/main/Makefile"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/Makefile"
   }
   ref "pull requests" {
-    value = "https://github.com/mineiros-io/terraform-module-template/pulls"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/pulls"
   }
   ref "contribution guidelines" {
-    value = "https://github.com/mineiros-io/terraform-module-template/blob/main/CONTRIBUTING.md"
+    value = "https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/CONTRIBUTING.md"
   }
 }
