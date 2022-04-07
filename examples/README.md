@@ -8,9 +8,7 @@
 
 <!-- - [example/] Create a Resource. -->
 
-We are sorry, but there are no examples available yet. This is work in progress.
-
-Feel free to contribute by providing a pull-request adding an example.
+- [example/] Creates a single Cloud Run app.
 
 <!-- References -->
 <!-- markdown-link-check-disable -->

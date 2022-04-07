@@ -1,12 +1,12 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>](https://mineiros.io/?ref=terraform-module-template)
+[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>](https://mineiros.io/?ref=terraform-google-cloud-run)
 
-[![Build Status](https://github.com/mineiros-io/terraform-module-template/workflows/Tests/badge.svg)](https://github.com/mineiros-io/terraform-module-template/actions)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-module-template.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-module-template/releases)
+[![Build Status](https://github.com/mineiros-io/terraform-google-cloud-run/workflows/Tests/badge.svg)](https://github.com/mineiros-io/terraform-google-cloud-run/actions)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-google-cloud-run.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-google-cloud-run/releases)
 [![Terraform Version](https://img.shields.io/badge/Terraform-1.x-623CE4.svg?logo=terraform)](https://github.com/hashicorp/terraform/releases)
 [![Google Provider Version](https://img.shields.io/badge/google-4-1A73E8.svg?logo=terraform)](https://github.com/terraform-providers/terraform-provider-google/releases)
 [![Join Slack](https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack)](https://mineiros.io/slack)
 
-# terraform-module-template
+# terraform-google-cloud-run
 
 A [Terraform](https://www.terraform.io) module for creating and managing
 [Google Cloud Run](https://cloud.google.com/run/docs/) with optional
@@ -54,8 +54,8 @@ and supports additional features of the following modules:
 Most common usage of the module:
 
 ```hcl
-module "terraform-module-template" {
-  source = "git@github.com:mineiros-io/terraform-module-template.git?ref=v0.0.2"
+module "terraform-google-cloud-run" {
+  source = "git@github.com:mineiros-io/terraform-google-cloud-run.git?ref=v0.0.2"
 
   name     = "example-name"
   location = "us-central1"
@@ -758,7 +758,7 @@ Copyright &copy; 2020-2022 [Mineiros GmbH][homepage]
 
 <!-- References -->
 
-[homepage]: https://mineiros.io/?ref=terraform-module-template
+[homepage]: https://mineiros.io/?ref=terraform-google-cloud-run
 [hello@mineiros.io]: mailto:hello@mineiros.io
 [badge-license]: https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg
 [releases-terraform]: https://github.com/hashicorp/terraform/releases
@@ -768,10 +768,10 @@ Copyright &copy; 2020-2022 [Mineiros GmbH][homepage]
 [terraform]: https://www.terraform.io
 [aws]: https://aws.amazon.com/
 [semantic versioning (semver)]: https://semver.org/
-[variables.tf]: https://github.com/mineiros-io/terraform-module-template/blob/main/variables.tf
-[examples/]: https://github.com/mineiros-io/terraform-module-template/blob/main/examples
-[issues]: https://github.com/mineiros-io/terraform-module-template/issues
-[license]: https://github.com/mineiros-io/terraform-module-template/blob/main/LICENSE
-[makefile]: https://github.com/mineiros-io/terraform-module-template/blob/main/Makefile
-[pull requests]: https://github.com/mineiros-io/terraform-module-template/pulls
-[contribution guidelines]: https://github.com/mineiros-io/terraform-module-template/blob/main/CONTRIBUTING.md
+[variables.tf]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/variables.tf
+[examples/]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/examples
+[issues]: https://github.com/mineiros-io/terraform-google-cloud-run/issues
+[license]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/LICENSE
+[makefile]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/Makefile
+[pull requests]: https://github.com/mineiros-io/terraform-google-cloud-run/pulls
+[contribution guidelines]: https://github.com/mineiros-io/terraform-google-cloud-run/blob/main/CONTRIBUTING.md
