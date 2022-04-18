@@ -356,6 +356,42 @@ section {
                   regardless of whether the variable exists or not.
                 END
               }
+
+              attribute "values_from" {
+                type        = list(value_from)
+                description = <<-END
+                  Source for the environment variable's value.
+                  Only supports `secret_key_ref`.
+                END
+
+                attribute "secret_key_ref" {
+                  type        = object(secret_key_ref)
+                  required    = true
+                  description = <<-END
+                    Selects a key (version) of a secret in Secret Manager.
+                  END
+
+                  attribute "key" {
+                    type        = string
+                    description = <<-END
+                      A Cloud Secret Manager secret version.
+                      Must be `"latest"` for the latest version or an integer for a specific version.
+                    END
+                  }
+
+                  attribute "name" {
+                    type        = string
+                    description = <<-END
+                      The name of the secret in Cloud Secret Manager.
+                      By default, the secret is assumed to be in the same project.
+                      If the secret is in another project, you must define an alias.
+                      You set the in this field, and create an annotation with the following structure
+                      `"run.googleapis.com/secrets" = ":projects//secrets/"`.
+                      If multiple alias definitions are needed, they must be separated by commas in the annotation field.
+                    END
+                  }
+                }
+              }
             }
 
             attribute "ports" {

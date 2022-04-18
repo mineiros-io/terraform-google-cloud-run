@@ -271,6 +271,33 @@ See [variables.tf] and [examples/] for details and use-cases.
           ie: `$$(VAR_NAME)`. Escaped references will never be expanded,
           regardless of whether the variable exists or not.
 
+        - [**`values_from`**](#attr-template-spec-containers-env-values_from): *(Optional `list(value_from)`)*<a name="attr-template-spec-containers-env-values_from"></a>
+
+          Source for the environment variable's value.
+          Only supports `secret_key_ref`.
+
+          Each `value_from` object in the list accepts the following attributes:
+
+          - [**`secret_key_ref`**](#attr-template-spec-containers-env-values_from-secret_key_ref): *(**Required** `object(secret_key_ref)`)*<a name="attr-template-spec-containers-env-values_from-secret_key_ref"></a>
+
+            Selects a key (version) of a secret in Secret Manager.
+
+            The `secret_key_ref` object accepts the following attributes:
+
+            - [**`key`**](#attr-template-spec-containers-env-values_from-secret_key_ref-key): *(Optional `string`)*<a name="attr-template-spec-containers-env-values_from-secret_key_ref-key"></a>
+
+              A Cloud Secret Manager secret version.
+              Must be `"latest"` for the latest version or an integer for a specific version.
+
+            - [**`name`**](#attr-template-spec-containers-env-values_from-secret_key_ref-name): *(Optional `string`)*<a name="attr-template-spec-containers-env-values_from-secret_key_ref-name"></a>
+
+              The name of the secret in Cloud Secret Manager.
+              By default, the secret is assumed to be in the same project.
+              If the secret is in another project, you must define an alias.
+              You set the in this field, and create an annotation with the following structure
+              `"run.googleapis.com/secrets" = ":projects//secrets/"`.
+              If multiple alias definitions are needed, they must be separated by commas in the annotation field.
+
       - [**`ports`**](#attr-template-spec-containers-ports): *(Optional `list(port)`)*<a name="attr-template-spec-containers-ports"></a>
 
         List of open ports in the container. More Info:

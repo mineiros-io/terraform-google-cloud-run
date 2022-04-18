@@ -47,6 +47,17 @@ resource "google_cloud_run_service" "service" {
               content {
                 name  = try(env.value.name, null)
                 value = try(env.value.value, null)
+
+                dynamic "value_from" {
+                  for_each = try(env.value.values_from, [])
+
+                  content {
+                    secret_key_ref {
+                      name = value_from.value.secret_key_ref.name
+                      key  = value_from.value.secret_key_ref.key
+                    }
+                  }
+                }
               }
             }
 
