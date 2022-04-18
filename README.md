@@ -55,10 +55,20 @@ Most common usage of the module:
 
 ```hcl
 module "terraform-google-cloud-run" {
-  source = "git@github.com:mineiros-io/terraform-google-cloud-run.git?ref=v0.0.2"
+  source = "github.com/mineiros-io/terraform-google-cloud-run?ref=v0.1.0"
 
   name     = "example-name"
   location = "us-central1"
+
+  template = {
+    spec = {
+      containers = [
+        {
+          image = "gcr.io/cloudrun/hello:latest"
+        }
+      ]
+    }
+  }
 }
 ```
 
