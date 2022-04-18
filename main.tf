@@ -113,7 +113,7 @@ resource "google_cloud_run_domain_mapping" "domain_mapping" {
   project  = var.project
 
   spec {
-    route_name       = google_cloud_run_service.service[0].name
+    route_name       = try(google_cloud_run_service.service[0].name, null)
     force_override   = try(var.domain_mapping.spec.force_override, null)
     certificate_mode = try(var.domain_mapping.spec.certificate_mode, "AUTOMATIC")
   }
