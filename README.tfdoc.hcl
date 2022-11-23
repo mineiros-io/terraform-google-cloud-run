@@ -326,7 +326,7 @@ section {
             }
 
             attribute "command" {
-              type        = string
+              type        = list(string)
               description = <<-END
                 Entrypoint array. Not executed within a shell. The docker
                 image's ENTRYPOINT is used if this is not provided. Variable
@@ -367,8 +367,8 @@ section {
                 END
               }
 
-              attribute "values_from" {
-                type        = list(value_from)
+              attribute "value_from" {
+                type        = object(value_from)
                 description = <<-END
                   Source for the environment variable's value.
                   Only supports `secret_key_ref`.
@@ -421,7 +421,6 @@ section {
 
               attribute "protocol" {
                 type        = string
-                default     = "TCP"
                 description = <<-END
                   Protocol used on port.
                 END

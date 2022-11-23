@@ -49,7 +49,7 @@ resource "google_cloud_run_service" "service" {
                 value = try(env.value.value, null)
 
                 dynamic "value_from" {
-                  for_each = try(env.value.values_from, [])
+                  for_each = try(env.value.value_from, [])
 
                   content {
                     secret_key_ref {
@@ -66,13 +66,13 @@ resource "google_cloud_run_service" "service" {
 
               content {
                 name           = try(ports.value.name, null)
-                protocol       = try(ports.value.protocol, "TCP")
+                protocol       = try(ports.value.protocol, null)
                 container_port = ports.value.container_port
               }
             }
 
             dynamic "resources" {
-              for_each = try(containers.value.resources, [])
+              for_each = try([containers.value.resources], [])
 
               content {
                 limits   = try(resources.value.limits, null)
