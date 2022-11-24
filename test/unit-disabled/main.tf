@@ -17,13 +17,4 @@ module "test" {
       ]
     }
   }
-
-  # add all optional arguments that create additional/extended resources
-
-  iam = [
-    {
-      role    = "roles/run.invoker"
-      members = ["domain:${local.org_domain}"]
-    }
-  ]
 }
