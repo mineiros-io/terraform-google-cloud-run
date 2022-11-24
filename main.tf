@@ -49,7 +49,7 @@ resource "google_cloud_run_service" "service" {
                 value = try(env.value.value, null)
 
                 dynamic "value_from" {
-                  for_each = try(env.value.value_from, [])
+                  for_each = try([env.value.value_from], [])
 
                   content {
                     secret_key_ref {
