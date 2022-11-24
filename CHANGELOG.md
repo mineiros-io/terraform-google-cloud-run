@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - BREAKING CHANGE: change `spec.containers.*.env.*.values_from` -> `spec.containers.*.env.*.value_from`
-- BREAKING CHANGE: change `spec.containers.ports.protocol` defaulting from "TCP" to `null`
+- BREAKING CHANGE: change `spec.containers.*.ports.*.protocol` defaulting from "TCP" to `null`
 
 ## [0.1.0] BREAKING CHANGES
 
