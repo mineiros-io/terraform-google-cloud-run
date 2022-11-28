@@ -53,12 +53,6 @@ variable "domain_mapping" {
   default     = null
 }
 
-variable "module_timeouts" {
-  description = "(Optional) An Object that specifies how long certain operations (per resource type) are allowed to take before being considered to have failed."
-  type        = any
-  default     = {}
-}
-
 ## IAM
 
 variable "iam" {
@@ -88,4 +82,10 @@ variable "module_depends_on" {
   type        = any
   description = "(Optional) A list of external resources the module depends_on. Default is '[]'."
   default     = []
+}
+
+variable "module_timeouts" {
+  description = "(Optional) An Object that specifies how long certain operations (per resource type) are allowed to take before being considered to have failed."
+  type        = any
+  default     = {}
 }

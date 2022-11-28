@@ -50,11 +50,13 @@ ifdef SSH_AUTH_SOCK
   DOCKER_SSH_FLAGS += -v ${SSH_AUTH_SOCK}:/ssh-agent
 endif
 
-# If GOOGLE_CREDENTIALS is defined, we are likely running inside a GCP provider
-# module. To enable GCP authentication inside the docker container, we inject
-# the relevant environment variables (service-account key file).
-ifdef GOOGLE_CREDENTIALS
-	DOCKER_GCP_FLAGS += -e GOOGLE_CREDENTIALS
+# If AWS_ACCESS_KEY_ID is defined, we are likely running inside an AWS provider
+# module. To enable AWS authentication inside the docker container, we inject
+# the relevant environment variables.
+ifdef AWS_ACCESS_KEY_ID
+  DOCKER_AWS_FLAGS += -e AWS_ACCESS_KEY_ID
+  DOCKER_AWS_FLAGS += -e AWS_SECRET_ACCESS_KEY
+  DOCKER_AWS_FLAGS += -e AWS_SESSION_TOKEN
 endif
 
 # If GOOGLE_CREDENTIALS is defined, we are likely running inside a GCP provider
@@ -121,6 +123,11 @@ test/unit-tests:
 .PHONY: terradoc
 terradoc:
 	$(call quiet-command,terradoc generate -o README.md README.tfdoc.hcl)
+
+## Generate shared configuration for tests
+.PHONY: terramate
+terramate:
+	$(call quiet-command,terramate generate)
 
 ## Clean up cache and temporary files
 .PHONY: clean
