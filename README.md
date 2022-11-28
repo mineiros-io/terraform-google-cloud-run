@@ -55,7 +55,7 @@ Most common usage of the module:
 
 ```hcl
 module "terraform-google-cloud-run" {
-  source = "github.com/mineiros-io/terraform-google-cloud-run?ref=v0.1.0"
+  source = "github.com/mineiros-io/terraform-google-cloud-run?ref=v0.2.0"
 
   name     = "example-name"
   location = "us-central1"
