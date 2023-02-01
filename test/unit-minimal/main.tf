@@ -3,8 +3,7 @@ module "test" {
 
   # add only required arguments and no optional arguments
 
-  name = "test-${local.random_suffix}"
-
+  name     = "test-${local.random_suffix}"
   location = "europe-west3"
 
   template = {

@@ -1,11 +1,9 @@
 module "test" {
   source = "../.."
 
-  module_enabled = false
-
   # add all required arguments
 
-  name     = "test"
+  name     = "test-${local.random_suffix}"
   location = "europe-west3"
 
   template = {
@@ -17,4 +15,8 @@ module "test" {
       ]
     }
   }
+
+  # add all optional arguments that create additional/extended resources
+
+  module_enabled = false
 }
