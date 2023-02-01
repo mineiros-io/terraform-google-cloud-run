@@ -1,13 +1,28 @@
 repos:
   - repo: https://github.com/mineiros-io/pre-commit-hooks
-    rev: v0.4.1
+    rev: v0.4.3
     hooks:
       - id: phony-targets
       - id: terradoc-validate
       - id: terradoc-fmt
+        require_serial: true
       - id: terradoc-generate
       - id: terramate-generate
       - id: terraform-fmt
       - id: terraform-validate
         exclude: ^examples|.terraform/
       - id: tflint
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: detect-private-key
+      - id: end-of-file-fixer
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.29.0
+    hooks:
+      - id: yamllint
+        args: ['-s']

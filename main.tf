@@ -16,14 +16,10 @@ resource "google_cloud_run_service" "service" {
         for_each = try([template.value.metadata], [])
 
         content {
-          name             = try(metadata.value.name, null)
-          namespace        = try(metadata.value.namespace, null)
-          labels           = try(metadata.value.labels, {})
-          generation       = try(metadata.value.generation, null)
-          resource_version = try(metadata.value.resource_version, null)
-          self_link        = try(metadata.value.self_link, null)
-          uid              = try(metadata.value.uid, null)
-          annotations      = try(metadata.value.annotations, null)
+          name        = try(metadata.value.name, null)
+          namespace   = try(metadata.value.namespace, null)
+          labels      = try(metadata.value.labels, {})
+          annotations = try(metadata.value.annotations, null)
         }
       }
 
@@ -86,7 +82,7 @@ resource "google_cloud_run_service" "service" {
   }
 
   dynamic "traffic" {
-    for_each = var.traffic
+    for_each = var.traffic != null ? var.traffic : []
 
     content {
       revision_name   = try(traffic.value.revision_name, null)
@@ -99,13 +95,9 @@ resource "google_cloud_run_service" "service" {
     for_each = var.metadata != null ? [var.metadata] : []
 
     content {
-      namespace        = try(metadata.value.namespace, null)
-      labels           = try(metadata.value.labels, {})
-      generation       = try(metadata.value.generation, null)
-      resource_version = try(metadata.value.resource_version, null)
-      self_link        = try(metadata.value.self_link, null)
-      uid              = try(metadata.value.uid, null)
-      annotations      = try(metadata.value.annotations, null)
+      namespace   = try(metadata.value.namespace, null)
+      labels      = try(metadata.value.labels, {})
+      annotations = try(metadata.value.annotations, null)
     }
   }
 
@@ -119,24 +111,20 @@ resource "google_cloud_run_service" "service" {
 resource "google_cloud_run_domain_mapping" "domain_mapping" {
   count = var.module_enabled && var.domain_mapping != null ? 1 : 0
 
-  name     = var.domain_mapping.name
-  location = var.domain_mapping.location
-  project  = var.project
+  name     = google_cloud_run_service.service[0].name
+  location = google_cloud_run_service.service[0].location
+  project  = google_cloud_run_service.service[0].project
 
   spec {
-    route_name       = try(google_cloud_run_service.service[0].name, null)
+    route_name       = google_cloud_run_service.service[0].name
     force_override   = try(var.domain_mapping.spec.force_override, null)
     certificate_mode = try(var.domain_mapping.spec.certificate_mode, "AUTOMATIC")
   }
 
   metadata {
-    namespace        = var.domain_mapping.metadata.namespace
-    labels           = try(var.domain_mapping.metadata.labels, {})
-    generation       = try(var.domain_mapping.metadata.generation, null)
-    resource_version = try(var.domain_mapping.metadata.resource_version, null)
-    self_link        = try(var.domain_mapping.metadata.self_link, null)
-    uid              = try(var.domain_mapping.metadata.uid, null)
-    annotations      = try(var.domain_mapping.metadata.annotations, null)
+    namespace   = var.domain_mapping.metadata.namespace
+    labels      = try(var.domain_mapping.metadata.labels, {})
+    annotations = try(var.domain_mapping.metadata.annotations, null)
   }
 
   timeouts {

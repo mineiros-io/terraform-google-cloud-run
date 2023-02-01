@@ -1,7 +1,7 @@
-# ---------------------------------------------------------------------------------------------------------------------
-# REQUIRED VARIABLES
+# ------------------------------------------------------------------------------
+# REQUIRED PARAMETERS
 # These variables must be set when using this module.
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 variable "name" {
   description = "(Required) Name must be unique within a namespace, within a Cloud Run region. Is required when creating resources. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated."
@@ -18,10 +18,10 @@ variable "template" {
   type        = any
 }
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # OPTIONAL VARIABLES
 # These variables have defaults, but may be overridden.
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 variable "project" {
   description = "(Optional) The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
@@ -38,7 +38,7 @@ variable "autogenerate_revision_name" {
 variable "traffic" {
   description = "(Optional) A list of traffic specifies how to distribute traffic over a collection of Knative Revisions and Configurations Structure."
   type        = any
-  default     = []
+  default     = null
 }
 
 variable "metadata" {
@@ -56,15 +56,26 @@ variable "domain_mapping" {
 ## IAM
 
 variable "iam" {
-  description = "(Optional) A list of IAM access to apply to the created secret."
+  description = "(Optional) A list of IAM access to apply to the created Cloud Run service."
   type        = any
   default     = []
 }
 
 variable "policy_bindings" {
-  description = "(Optional) A list of IAM policy bindings to apply to the created secret."
+  description = "(Optional) A list of IAM policy bindings to apply to the created Cloud Run service."
   type        = any
   default     = null
+}
+
+variable "computed_members_map" {
+  type        = map(string)
+  description = "(Optional) A map of members to replace in `var.members` or in members of `policy_bindings` to handle terraform computed values."
+  default     = {}
+
+  validation {
+    condition     = alltrue([for k, v in var.computed_members_map : can(regex("^(allUsers|allAuthenticatedUsers|(user|serviceAccount|group|domain|projectOwner|projectEditor|projectViewer):)", v))])
+    error_message = "The value must be a non-empty string being a valid principal type identified with ``allUsers`, `allAuthenticatedUsers` or prefixed with `user:`, `serviceAccount:`, `group:`, `domain:`, `projectOwner:`, `projectEditor:` or `projectViewer:`."
+  }
 }
 
 # ------------------------------------------------------------------------------
@@ -74,13 +85,13 @@ variable "policy_bindings" {
 
 variable "module_enabled" {
   type        = bool
-  description = "(Optional) Whether to create resources within the module or not. Default is 'true'."
+  description = "(Optional) Toggle resource creation within the module."
   default     = true
 }
 
 variable "module_depends_on" {
   type        = any
-  description = "(Optional) A list of external resources the module depends_on. Default is '[]'."
+  description = "(Optional) A list of external resources the module depends on."
   default     = []
 }
 

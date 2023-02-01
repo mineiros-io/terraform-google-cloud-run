@@ -1,11 +1,13 @@
 globals {
-  minimum_terraform_version   = "1.0"
+  minimum_terraform_version = "1.0"
 
-  provider                    = "google"
+  provider                 = "google"
   minimum_provider_version    = "4.1"
 
   provider_version_constraint  = "~> ${global.minimum_provider_version}"
-  terraform_version_constraint = "~> ${global.minimum_terraform_version}, != 1.1.0, != 1.1.1"
-  # we exclude 1.1.0 and 1.1.1 because of:
+  terraform_version_constraint = "~> ${global.minimum_terraform_version}, != 1.1.0, != 1.1.1, != 1.3.0"
+  # exclude 1.1.0 and 1.1.1 because of:
   # https://github.com/hashicorp/terraform/blob/v1.1/CHANGELOG.md#112-december-17-2021
+  # exclude 1.3.0 due to bug in Terraform with nested modules. Somewhat related to:
+  # https://github.com/hashicorp/terraform/issues/31847
 }
