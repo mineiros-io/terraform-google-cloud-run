@@ -114,6 +114,12 @@ resource "google_cloud_run_service" "service" {
     update = try(var.module_timeouts.google_cloud_run_service.update, "15m")
     delete = try(var.module_timeouts.google_cloud_run_service.delete, "4m")
   }
+
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["run.googleapis.com/operation-id"]
+    ]
+  }
 }
 
 resource "google_cloud_run_domain_mapping" "domain_mapping" {
