@@ -3,7 +3,7 @@ locals {
 }
 
 module "iam" {
-  source = "github.com/mineiros-io/terraform-google-cloud-run-iam?ref=v0.0.3"
+  source = "github.com/mineiros-io/terraform-google-cloud-run-iam?ref=v0.2.0"
 
   for_each = var.policy_bindings == null ? local.iam_map : {}
 
@@ -27,7 +27,7 @@ moved {
 }
 
 module "policy_bindings" {
-  source = "github.com/mineiros-io/terraform-google-cloud-run-iam?ref=v0.0.3"
+  source = "github.com/mineiros-io/terraform-google-cloud-run-iam?ref=v0.2.0"
 
   count = var.policy_bindings != null ? 1 : 0
 
